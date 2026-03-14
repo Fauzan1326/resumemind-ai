@@ -92,16 +92,6 @@ const ResumeAnalyzer = () => {
   const [scores, setScores] = useState<ResumeScores | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
-  const handleFileUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const text = ev.target?.result as string;
-      setResumeText(text);
-    };
-    reader.readAsText(file);
-  }, []);
 
   const analyze = () => {
     if (!resumeText.trim()) return;
