@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageSquare, User, Send, Bot } from "lucide-react";
+import { User, Send, Bot } from "lucide-react";
+import FileUploadZone from "@/components/FileUploadZone";
 
 const personas = [
   { id: "bigtech", label: "Big Tech Recruiter", prompt: "As a FAANG recruiter, I focus on system design, algorithms, and leadership." },
@@ -84,12 +85,14 @@ const AIInterview = () => {
             </div>
           </div>
           <div className="glass-card rounded-xl p-6">
-            <label className="text-sm font-medium text-foreground block mb-2">Paste Your Resume</label>
-            <textarea
-              className="w-full h-32 bg-secondary border border-border rounded-lg p-4 text-sm text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50"
-              placeholder="Paste your resume text here..."
-              value={resumeText}
-              onChange={(e) => setResumeText(e.target.value)}
+            <label className="text-sm font-medium text-foreground block mb-2">Upload or Paste Your Resume</label>
+            <FileUploadZone
+              onTextExtracted={(text) => setResumeText(text)}
+              showTextarea
+              textareaValue={resumeText}
+              onTextareaChange={setResumeText}
+              textareaPlaceholder="Or paste your resume text here..."
+              compact
             />
           </div>
           <button onClick={startInterview} disabled={!selectedPersona || !resumeText.trim()} className="px-8 py-2.5 rounded-lg gradient-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity disabled:opacity-50">
