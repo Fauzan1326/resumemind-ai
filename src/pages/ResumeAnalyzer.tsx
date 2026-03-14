@@ -1,6 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Upload, FileText, CheckCircle, AlertTriangle, User, Mail, Phone, Linkedin, Github, Award, Briefcase, GraduationCap, Code, Star, Hash } from "lucide-react";
+import { CheckCircle, AlertTriangle, User, Mail, Phone, Linkedin, Github, Award, Briefcase, GraduationCap, Code, Star, Hash } from "lucide-react";
+import FileUploadZone from "@/components/FileUploadZone";
 import ScoreRing from "@/components/ScoreRing";
 import HeatmapBar from "@/components/HeatmapBar";
 
