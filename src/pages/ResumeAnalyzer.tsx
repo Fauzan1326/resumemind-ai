@@ -132,18 +132,11 @@ const ResumeAnalyzer = () => {
       <div className="glass-card rounded-xl p-6">
         <div className="flex flex-col items-center gap-4">
           <div className="w-full">
-            <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-border rounded-xl cursor-pointer hover:border-primary/50 transition-colors">
-              <Upload className="w-8 h-8 text-muted-foreground mb-2" />
-              <span className="text-sm text-muted-foreground">Click to upload (TXT, or paste below)</span>
-              <input type="file" className="hidden" accept=".txt,.text" onChange={handleFileUpload} />
-            </label>
-          </div>
-          <div className="w-full">
-            <textarea
-              className="w-full h-40 bg-secondary border border-border rounded-xl p-4 text-sm text-foreground placeholder:text-muted-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50"
-              placeholder="Or paste your resume text here..."
-              value={resumeText}
-              onChange={(e) => setResumeText(e.target.value)}
+            <FileUploadZone
+              onTextExtracted={(text) => setResumeText(text)}
+              showTextarea
+              textareaValue={resumeText}
+              onTextareaChange={setResumeText}
             />
           </div>
           <button
