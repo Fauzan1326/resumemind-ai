@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageSquare, User, Send, Bot } from "lucide-react";
+import { User, Send, Bot } from "lucide-react";
+import FileUploadZone from "@/components/FileUploadZone";
 
 const personas = [
   { id: "bigtech", label: "Big Tech Recruiter", prompt: "As a FAANG recruiter, I focus on system design, algorithms, and leadership." },
